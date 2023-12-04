@@ -1,27 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:10:31 by asoubiel          #+#    #+#             */
-/*   Updated: 2023/11/29 15:39:52 by asoubiel         ###   ########.fr       */
+/*   Created: 2023/11/29 13:07:09 by asoubiel          #+#    #+#             */
+/*   Updated: 2023/11/29 21:56:53 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str);
+void	*ft_calloc(size_t count, size_t size);
 
-size_t	ft_strlen(const char *str)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	index;
+	void	*ptr;
 
-	index = 0;
-	while (str[index] != '\0')
-	{
-		index++;
-	}
-	return (index);
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (0);
+	ft_bzero(ptr, count * size);
+	return (ptr);
 }
+
+/* int	main(void)
+{
+	int n;
+	char *a;
+
+	n = 10;
+
+	a = (char *)calloc(n, sizeof(char));
+	
+	while(n > 0)
+	{
+		a[n -1] = 'H';
+		n--;
+	}
+	printf("Resultado: %s", a);
+	free(a);
+	
+	return(0);
+} */

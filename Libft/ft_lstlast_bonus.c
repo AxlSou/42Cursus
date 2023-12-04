@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:10:31 by asoubiel          #+#    #+#             */
-/*   Updated: 2023/11/29 15:39:52 by asoubiel         ###   ########.fr       */
+/*   Created: 2023/12/01 21:25:09 by asoubiel          #+#    #+#             */
+/*   Updated: 2023/12/01 21:30:38 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str);
+t_list	*ft_lstlast(t_list *lst);
 
-size_t	ft_strlen(const char *str)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	index;
+	t_list	*current;
 
-	index = 0;
-	while (str[index] != '\0')
+	current = lst;
+	if (!lst)
+		return (NULL);
+	while (current->next)
 	{
-		index++;
+		current = current->next;
 	}
-	return (index);
+	return (current);
 }

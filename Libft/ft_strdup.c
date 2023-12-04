@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:10:31 by asoubiel          #+#    #+#             */
-/*   Updated: 2023/11/29 15:39:52 by asoubiel         ###   ########.fr       */
+/*   Created: 2023/11/29 13:53:59 by asoubiel          #+#    #+#             */
+/*   Updated: 2023/11/29 21:34:09 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str);
+char	*ft_strdup(const char *s1);
 
-size_t	ft_strlen(const char *str)
+char	*ft_strdup(const char *s1)
 {
-	size_t	index;
+	char	*dup;
+	size_t	len;
 
-	index = 0;
-	while (str[index] != '\0')
-	{
-		index++;
-	}
-	return (index);
+	len = ft_strlen(s1);
+	dup = (char *)malloc(len * sizeof(char) + 1);
+	if (!dup)
+		return (NULL);
+	ft_memcpy(dup, s1, len + 1);
+	return (dup);
 }
+
+/* int main()
+{
+	char source[] = "Testing ft_strdup";
+
+	char* target = ft_strdup(source);
+
+	printf("%p\n", &source);
+	printf("%p", &target);
+	return (0);
+} */

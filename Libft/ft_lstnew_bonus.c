@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:10:31 by asoubiel          #+#    #+#             */
-/*   Updated: 2023/11/29 15:39:52 by asoubiel         ###   ########.fr       */
+/*   Created: 2023/12/01 20:33:31 by asoubiel          #+#    #+#             */
+/*   Updated: 2023/12/01 20:50:24 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str);
+t_list	*ft_lstnew(void *content);
 
-size_t	ft_strlen(const char *str)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	index;
+	t_list	*new_n;
 
-	index = 0;
-	while (str[index] != '\0')
-	{
-		index++;
-	}
-	return (index);
+	new_n = (t_list *)malloc(sizeof(t_list));
+	if (!new_n)
+		return (NULL);
+	new_n->content = content;
+	new_n->next = NULL;
+	return (new_n);
 }

@@ -1,27 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:10:31 by asoubiel          #+#    #+#             */
-/*   Updated: 2023/11/29 15:39:52 by asoubiel         ###   ########.fr       */
+/*   Created: 2023/11/28 11:21:11 by asoubiel          #+#    #+#             */
+/*   Updated: 2023/11/29 19:47:19 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str);
+char	*ft_strrchr(const char *s, int c);
 
-size_t	ft_strlen(const char *str)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	index;
+	int	index;
 
-	index = 0;
-	while (str[index] != '\0')
+	index = ft_strlen(s);
+	while (index >= 0)
 	{
-		index++;
+		if (s[index] == (char)c)
+		{
+			return ((char *)s + index);
+		}
+		index--;
 	}
-	return (index);
+	return (NULL);
 }
+
+/* int	main(void)
+{
+	const char str[] = "https://www.tutorialspoint.com";
+	const char ch = 't';
+	char *ret;
+
+	ret = ft_strrchr(str, ch);
+
+	printf("String after |%c| is - |%s|\n", ch, ret);
+
+	return (0);
+} */

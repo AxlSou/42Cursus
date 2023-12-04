@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 16:29:35 by asoubiel          #+#    #+#             */
-/*   Updated: 2023/11/29 17:25:42 by asoubiel         ###   ########.fr       */
+/*   Created: 2023/11/27 17:12:16 by asoubiel          #+#    #+#             */
+/*   Updated: 2023/12/01 17:39:39 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-void	*ft_memset(void *str, int c, size_t n);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 
-void	*ft_memset(void *str, int c, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-	char	*cstr;
+	char	*new_dst;
+	char	*new_src;
 
-	cstr = (char *)str;
-	i = 0;
+	new_dst = (char *)dst;
+	new_src = (char *)src;
+	if (!new_dst && !new_src)
+		return (NULL);
 	while (n > 0)
 	{
-		cstr[i] = c;
-		i++;
+		*new_dst = *new_src;
+		new_src++;
+		new_dst++;
 		n--;
 	}
-	return (str);
+	return (dst);
 }
 
 /* int	main(void)
 {
-	char str[] = "jjjjjjjjjjjjjjj";
-	char str2[] = "jjjjjjjjjjjjjjj";
-	printf("Original: %s\n", str);
-	memset(str, 'c', 5);
-	printf("Original: %s\n", str);
-	printf("Nueva: %s\n", str2);
-	ft_memset(str2, 'c', 5);
-	printf("Nueva: %s", str2);
+	const char src[] = "perro";
+	char dest[] = "casa";
+
+	printf("Before memcpy dest = %s\n", dest);
+	ft_memcpy(dest, src, 5);
+	printf("After memcpy dest = %s\n", dest);
 
 	return (0);
 } */

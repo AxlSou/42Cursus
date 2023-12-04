@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:10:31 by asoubiel          #+#    #+#             */
-/*   Updated: 2023/11/29 15:39:52 by asoubiel         ###   ########.fr       */
+/*   Created: 2023/12/01 15:22:03 by asoubiel          #+#    #+#             */
+/*   Updated: 2023/12/01 15:25:56 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str);
+void	ft_putnbr_fd(int n, int fd);
 
-size_t	ft_strlen(const char *str)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	index;
+	char	num;
 
-	index = 0;
-	while (str[index] != '\0')
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
 	{
-		index++;
+		n *= -1;
+		write(fd, "-", 1);
+		ft_putnbr_fd(n, fd);
 	}
-	return (index);
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		num = '0' + (n % 10);
+		write(fd, &num, 1);
+	}
+	else
+	{
+		num = '0' + n;
+		write(fd, &num, 1);
+	}
 }
