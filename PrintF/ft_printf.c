@@ -12,11 +12,11 @@
 
 #include "libftprintf.h"
 
-int	ft_printf(char const *str, ...)
+int ft_printf(char const *str, ...)
 {
-	int		count;
+	int 	count;
 	va_list	args;
-	t_flags	*flags;
+	t_flags *flags;
 
 	count = 0;
 	flags = malloc(sizeof(t_flags));
@@ -27,8 +27,7 @@ int	ft_printf(char const *str, ...)
 	{
 		if (*str == '%')
 		{
-			str++;
-			str = ft_check_flags(str, flags);
+			str = ft_check_flags(str + 1, flags);
 		}
 		ft_putchar_fd(*str, 1);
 		str++;
@@ -39,5 +38,5 @@ int	ft_printf(char const *str, ...)
 
 int main(void)
 {
-	printf("Test %+4.d termina", 10);
+	ft_printf("Test %-010d termina\n", 10);
 }
