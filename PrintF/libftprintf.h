@@ -26,6 +26,6 @@ typedef struct s_flags
 }		t_flags;
 
 int		ft_printf(char const *str, ...);
-void	ft_check_flags(char const *str, t_flags *flags);
+char	*ft_check_flags(char const *str, t_flags *flags);
 
 #endif

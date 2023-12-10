@@ -26,15 +26,29 @@ static int	ft_isinset(char const *set, char c)
 	return (0);
 }
 
+static char *ft_zero_flag(char const *str, t_flags *flags)
+{
+	flags->zero = 1;
+	while (ft_isdigit(*str))
+	{
+		flags->length += *str - '0';
+		flags->length *= 10;
+		str++;
+	}
+	flags->length /= 10;
+	
+	return ((char *)str - 1);
+}
+
 char	*ft_check_flags(char const *str, t_flags *flags)
 {
 	while (!ft_isinset("cspdiuxX%", *str))
 	{
 		if (*str == '-')
 			flags->ljust = 1;
-/* 		else if (*str == '0')
-			ft_zero_flag(str, flags); // To check
-		else if (*str == '.')
+		else if (*str == '0')
+			str = ft_zero_flag(str, flags);
+		/* else if (*str == '.')
 			ft_precision_flag(str, flags); // To check */
 		else if (*str == '#')
 			flags->hasht = 1;
@@ -46,5 +60,11 @@ char	*ft_check_flags(char const *str, t_flags *flags)
 			ft_putchar_fd('%', 1);
 		str++;
 	}
+	printf("Length: %d\n", flags->length);
+	printf("Prec: %d\n", flags->prec);
+	printf("Ljust: %d\n", flags->ljust);
+	printf("Plus: %d\n", flags->plus);
+	printf("Hasht: %d\n", flags->hasht);
+	printf("Zero: %d\n", flags->zero);
 	return ((char *)str);
 }
