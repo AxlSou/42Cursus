@@ -6,41 +6,48 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:10:23 by asoubiel          #+#    #+#             */
-/*   Updated: 2023/12/14 18:27:34 by asoubiel         ###   ########.fr       */
+/*   Updated: 2023/12/19 00:15:01 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_read_file(int fd, char *str)
+char	*ft_read_file(int fd, char *str, int *sz)
 {
 	char	*buf;
-	int		sz;
+	char	*new_str;
 
 	buf = (char *)malloc(BUFFER_SIZE * sizeof(char) + 1);
-	if (!buf)
+	if (!buf || !str)
 		return (NULL);
-	sz = read(fd, buf, BUFFER_SIZE);
-	if (sz == -1 || sz == 0)
+	*sz = read(fd, buf, BUFFER_SIZE);
+	if (*sz < 1)
 	{
 		free(buf);
-		return (NULL);
+		if (*sz == 0)
+			return (str);
+		else
+			return (NULL);
 	}
-	buf[sz] = '\0';
-	str = ft_strjoin(str, buf);
-	if (!str)
-	{
-		free(buf);
+	buf[*sz] = '\0';
+	new_str = ft_strjoin(str, buf);
+	if (!new_str)
 		return (NULL);
-	}
+	free(buf);
+	free(str);
+	str = new_str;
 	return (str);
 }
 
-char	*get_new_line(char *str)
+char	*get_new_line(char *str, int *sz)
 {
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (NULL);
+	if (*sz == 0)
+		return (ft_substr(str, 0, ft_strlen(str) + 1));
 	while (str[i] != '\0')
 	{
 		if (str[i] == '\n')
@@ -54,28 +61,25 @@ char	*get_next_line(int fd)
 {
 	static char	*str;
 	char		*result;
+	int			sz;
 
+	sz = 0;
 	if (!fd)
 		return (NULL);
-	if (!str)
+	if (!str || *str == 0)
 	{
-		str = "";
-		str = ft_read_file(fd, str);
-		if (!str)
+		str = ft_strdup("");
+		str = ft_read_file(fd, str, &sz);
+		if (!str || *str == 0)
 			return (NULL);
 	}
-	result = get_new_line(str);
+	result = get_new_line(str, &sz);
 	while (!result)
 	{
-		str = ft_read_file(fd, str);
-		if (!str)
-		{
-			free(str);
-			return (NULL);
-		}
-		result = get_new_line(str);
+		str = ft_read_file(fd, str, &sz);
+		result = get_new_line(str, &sz);
 	}
-	str = ft_read_file(fd, str);
+	str = NULL;
 	return (result);
 }
 
@@ -92,7 +96,7 @@ char	*get_next_line(int fd)
 		fd = open(argv[1], O_RDONLY);
 		if (fd < 0)
 			return (0);
-		while (i < 5)
+		while (i < 2)
 		{
 			printf("%s", get_next_line(fd));
 			i++;

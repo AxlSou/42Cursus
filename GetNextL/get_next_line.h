@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:10:28 by asoubiel          #+#    #+#             */
-/*   Updated: 2023/12/14 18:09:31 by asoubiel         ###   ########.fr       */
+/*   Updated: 2023/12/18 22:57:15 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*get_new_line(char *str);
-char	*ft_read_file(int fd, char *str);
+char	*get_new_line(char *str, int *sz);
+char	*ft_read_file(int fd, char *str, int *sz);
 
 #endif
