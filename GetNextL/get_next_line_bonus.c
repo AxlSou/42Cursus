@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 19:10:23 by asoubiel          #+#    #+#             */
-/*   Updated: 2023/12/21 12:46:38 by asoubiel         ###   ########.fr       */
+/*   Created: 2023/12/21 12:16:08 by asoubiel          #+#    #+#             */
+/*   Updated: 2023/12/21 13:03:36 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_read_file(int fd, char *buf, char *str)
 {
@@ -62,7 +62,7 @@ char	*get_new_line(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
+	static char	*str[1000];
 	char		*result;
 	char		*buf;
 
@@ -71,38 +71,13 @@ char	*get_next_line(int fd)
 	buf = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buf)
 		return (NULL);
-	result = ft_read_file(fd, buf, str);
+	result = ft_read_file(fd, buf, str[fd]);
 	buf = ft_free(buf);
 	if (!result)
 	{
-		str = ft_free(str);
+		str[fd] = ft_free(str[fd]);
 		return (NULL);
 	}
-	str = get_new_line(result);
+	str[fd] = get_new_line(result);
 	return (result);
 }
-
-/* int	main(int argc, char **argv)
-{
-	int fd;
-	int i;
-	char	*line;
-	i = 0;
-
-	if (argc < 2)
-		get_next_line(0);
-	else
-	{
-		fd = open(argv[1], O_RDONLY);
-		if (fd < 0)
-			return (0);
-		while (i < 13)
-		{
-			line = get_next_line(fd);
-			printf("%s", line);
-			free(line);
-			i++;
-		}
-	}
-	return (0);
-}  */
