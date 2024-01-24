@@ -15,12 +15,18 @@ ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus
 
 OBONUS = $(BONUSFILES:.c=.o)
 
+PRINTFDIR = ./ft_printf
+
+PRINTF = ./ft_printf/libftprintf.a
+
 NAME = libft.a
 
 #Rules
 all: $(NAME)
 
 $(NAME): $(OFILES)
+	make -C $(PRINTFDIR)
+	cp $(PRINTF) $(NAME)
 	ar rcs $(NAME) $(OFILES)
 
 clean:
