@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:06:24 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/01/22 20:17:56 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:18:57 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "./ft_printf/ft_printf.h"
+# include "./ft_printf.h"
 
 typedef struct s_list
 {
