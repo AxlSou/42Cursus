@@ -6,15 +6,15 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:36:29 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/02/01 13:36:51 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/01 15:27:10 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_get_position(t_list **lst, int n)
+int	ft_get_position(l_list **lst, int n)
 {
-	t_list	*current;
+	l_list	*current;
 	int		result;
 
 	current = *lst;
@@ -23,7 +23,7 @@ int	ft_get_position(t_list **lst, int n)
 		return (0);
 	while (current)
 	{
-		if (ft_atoi(current->content) == n)
+		if (current->content == n)
 			return (result);
 		current = current->next;
 		result++;

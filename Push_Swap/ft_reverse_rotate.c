@@ -6,47 +6,56 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:04:13 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/02/01 13:48:04 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/01 14:46:09 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_reverse_rotate(t_list **lst)
+void	ft_reverse_rotate(l_list **lst)
 {
-	t_list	*last;
-	t_list	*tmp;
+	l_list	*last;
+	l_list	*tmp;
 
 	if (!lst || !*lst || !(*lst)->next)
 		return ;
 	tmp = *lst;
-	last = ft_lstlast(*lst);
+	last = ft_lastnode(*lst);
 	while (tmp->next->next)
 		tmp = tmp->next;
-	ft_lstadd_front(lst, last);
+	ft_add_front_lst(lst, last);
 	tmp->next = NULL;
 }
 
-void	ft_rra(t_list **lst)
+void	ft_rra(l_list **lst)
 {
-	ft_reverse_rotate(lst);
-	ft_printf("rra\n");
+	if(lst)
+	{
+		ft_reverse_rotate(lst);
+		ft_printf("rra\n");
+	}
 }
 
-void	ft_rrb(t_list **lst)
+void	ft_rrb(l_list **lst)
 {
-	ft_reverse_rotate(lst);
-	ft_printf("rrb\n");
+	if(lst)
+	{
+		ft_reverse_rotate(lst);
+		ft_printf("rrb\n");
+	}
 }
 
-void	ft_rrr(t_list **lst_a, t_list **lst_b)
+void	ft_rrr(l_list **lst_a, l_list **lst_b)
 {
-	ft_reverse_rotate(lst_a);
-	ft_reverse_rotate(lst_b);
-	ft_printf("rrr\n");
+	if (lst_a && lst_b)
+	{
+		ft_reverse_rotate(lst_a);
+		ft_reverse_rotate(lst_b);
+		ft_printf("rrr\n");
+	}
 }
 
-void	ft_rev_rotate_lst(t_list **lst_a, t_list **lst_b)
+void	ft_rev_rotate_lst(l_list **lst_a, l_list **lst_b)
 {
 	if (!ft_lstcheck_sort(lst_a) && !ft_lstcheck_sort(lst_b))
 		ft_rrr(lst_a, lst_b);

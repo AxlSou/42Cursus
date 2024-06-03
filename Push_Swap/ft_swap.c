@@ -6,15 +6,15 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 23:41:39 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/02/01 13:41:21 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/01 12:56:34 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_list **lst)
+void	ft_swap(l_list **lst)
 {
-	void	*tmp;
+	int	tmp;
 
 	if (!lst || !*lst || !(*lst)->next)
 		return ;
@@ -23,34 +23,34 @@ void	ft_swap(t_list **lst)
 	(*lst)->content = tmp;
 }
 
-void	ft_sa(t_list **lst)
+void	ft_sa(l_list **lst)
 {
 	ft_swap(lst);
 	ft_printf("sa\n");
 }
 
-void	ft_sb(t_list **lst)
+void	ft_sb(l_list **lst)
 {
 	ft_swap(lst);
 	ft_printf("sb\n");
 }
 
-void	ft_ss(t_list **lst_a, t_list **lst_b)
+void	ft_ss(l_list **lst_a, l_list **lst_b)
 {
 	ft_swap(lst_a);
 	ft_swap(lst_b);
 	ft_printf("ss\n");
 }
 
-void	ft_swap_stacks(t_list **lst_a, t_list **lst_b)
+void	ft_swap_stacks(l_list **lst_a, l_list **lst_b)
 {
 	int	is_a_swappable;
 	int	is_b_swappable;
 
-	is_a_swappable = (*lst_a)->next && ft_atoi((*lst_a)->content)
-		> ft_atoi((*lst_a)->next->content);
-	is_b_swappable = (*lst_b)->next
-		&& ft_atoi((*lst_b)->content) > ft_atoi((*lst_b)->next->content);
+	is_a_swappable = (*lst_a)->next && (*lst_a)->content
+		> (*lst_a)->next->content && (*lst_a)->content != ft_max_number(lst_a);
+	is_b_swappable = (*lst_b)->next && (*lst_b)->content 
+		> (*lst_b)->next->content && (*lst_b)->content != ft_max_number(lst_b);
 	if (is_a_swappable && is_b_swappable)
 		ft_ss(lst_a, lst_b);
 	else if (is_a_swappable)

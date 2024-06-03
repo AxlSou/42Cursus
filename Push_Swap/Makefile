@@ -6,7 +6,7 @@
 #    By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 15:12:45 by asoubiel          #+#    #+#              #
-#    Updated: 2024/02/06 16:23:15 by asoubiel         ###   ########.fr        #
+#    Updated: 2024/06/03 22:17:51 by asoubiel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-CFILES = ft_push.c ft_rotate.c ft_swap.c push_swap.c
+CFILES = ft_push.c ft_rotate.c ft_swap.c push_swap.c ft_checks.c ft_reverse_rotate.c ft_max_number.c lst_utils.c ft_get_position.c \
+ft_set_index.c
 
 OFILES = $(CFILES:.c=.o)
 
@@ -29,8 +30,7 @@ all: $(NAME)
 
 $(NAME): $(OFILES)
 	make -C $(LIBFTDIR)
-	cp $(LIBFT) $(NAME)
-	ar rcs $(NAME) $(OFILES)
+	$(CC) $(CFLAGS) $(OFILES) $(LIBFT) -o $(NAME)
 
 clean:
 	make clean -C $(LIBFTDIR)
