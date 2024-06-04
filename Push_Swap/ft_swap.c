@@ -6,13 +6,13 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 23:41:39 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/01 12:56:34 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:23:37 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(l_list **lst)
+void	ft_swap(t_stack **lst)
 {
 	int	tmp;
 
@@ -23,26 +23,26 @@ void	ft_swap(l_list **lst)
 	(*lst)->content = tmp;
 }
 
-void	ft_sa(l_list **lst)
+void	ft_sa(t_stack **lst)
 {
 	ft_swap(lst);
 	ft_printf("sa\n");
 }
 
-void	ft_sb(l_list **lst)
+void	ft_sb(t_stack **lst)
 {
 	ft_swap(lst);
 	ft_printf("sb\n");
 }
 
-void	ft_ss(l_list **lst_a, l_list **lst_b)
+void	ft_ss(t_stack **lst_a, t_stack **lst_b)
 {
 	ft_swap(lst_a);
 	ft_swap(lst_b);
 	ft_printf("ss\n");
 }
 
-void	ft_swap_stacks(l_list **lst_a, l_list **lst_b)
+void	ft_swap_stacks(t_stack **lst_a, t_stack **lst_b)
 {
 	int	is_a_swappable;
 	int	is_b_swappable;

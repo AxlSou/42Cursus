@@ -1,48 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checks.c                                        :+:      :+:    :+:   */
+/*   ft_move_to_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 11:36:04 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/04 20:11:26 by asoubiel         ###   ########.fr       */
+/*   Created: 2024/06/04 19:15:02 by asoubiel          #+#    #+#             */
+/*   Updated: 2024/06/04 20:27:38 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstcheck_sort(t_stack **lst)
+void	ft_move_to_b(t_stack **stack_a, t_stack **stack_b)
 {
-	int		value;
+	int		size;
 	t_stack	*current;
 
-	current = *lst;
-	value = current->content;
+	current = *stack_a;
+	size = ft_sizelst(stack_a);
 	while (current)
 	{
-		if (current->content < value)
-			return (0);
-		value = current->content;
+		if (current->index < size / 2)
+			ft_pb(stack_a, stack_b);
 		current = current->next;
 	}
-	return (1);
-}
-
-int	ft_check_rotation_sort(t_stack **lst)
-{
-	int		max_num;
-	t_stack	*current;
-
-	max_num = ft_max_number(lst);
-	current = *lst;
-	while (current->next)
+	current = *stack_a;
+	while (current)
 	{
-		if (current->content < current->next->content
-			|| current->content == max_num)
-			current = current->next;
-		else
-			return (0);
+		if (current->index < size - 3)
+			ft_pb(stack_a, stack_b);
+		current = current->next;
 	}
-	return (1);
 }

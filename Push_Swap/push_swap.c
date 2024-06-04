@@ -6,18 +6,18 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:15:14 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/03 22:20:14 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/04 20:29:47 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstprint(l_list **lst)
+void	ft_lstprint(t_stack **lst)
 {
-	l_list	*current;
+	t_stack	*current;
 
 	current = *lst;
-	if(!lst || !current)
+	if (!lst || !current)
 		return ;
 	while (current)
 	{
@@ -35,8 +35,8 @@ void	ft_lstprint(l_list **lst)
 int	main(int argc, char **argv)
 {
 	int		i;
-	l_list	*stack_a;
-	l_list	*stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	i = 2;
 	stack_b = NULL;
@@ -51,7 +51,9 @@ int	main(int argc, char **argv)
 			i++;
 		}
 		ft_set_index(&stack_a);
+		ft_move_to_b(&stack_a, &stack_b);
 		ft_lstprint(&stack_a);
+		ft_lstprint(&stack_b);
 	}
 	ft_clearlst(&stack_a, free);
 	ft_clearlst(&stack_b, free);

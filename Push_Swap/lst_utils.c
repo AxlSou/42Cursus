@@ -6,17 +6,17 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:24:22 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/01 15:26:45 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:55:41 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-l_list	*ft_newlst(int content)
+t_stack	*ft_newlst(int content)
 {
-	l_list	*new_n;
+	t_stack	*new_n;
 
-	new_n = (l_list *)malloc(sizeof(l_list));
+	new_n = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_n)
 		return (NULL);
 	new_n->content = content;
@@ -27,9 +27,9 @@ l_list	*ft_newlst(int content)
 	return (new_n);
 }
 
-void ft_add_back_lst(l_list **lst, l_list *new_n)
+void ft_add_back_lst(t_stack **lst, t_stack *new_n)
 {
-    l_list	*current;
+    t_stack	*current;
 
     if (!lst || !new_n)
         return ;
@@ -41,15 +41,15 @@ void ft_add_back_lst(l_list **lst, l_list *new_n)
     current->next = new_n;
 }
 
-void	ft_add_front_lst(l_list **lst, l_list *new)
+void	ft_add_front_lst(t_stack **lst, t_stack *new)
 {
 	new->next = *lst;
 	*lst = new;
 }
 
-l_list   *ft_lastnode(l_list *lst)
+t_stack   *ft_lastnode(t_stack *lst)
 {
-    l_list	*current;
+    t_stack	*current;
 
     current = lst;
     if (!lst)
@@ -59,10 +59,10 @@ l_list   *ft_lastnode(l_list *lst)
     return (current);
 }
 
-void   ft_clearlst(l_list **lst, void (*del)(void *))
+void   ft_clearlst(t_stack **lst, void (*del)(void *))
 {
-    l_list	*current;
-    l_list	*tmp;
+    t_stack	*current;
+    t_stack	*tmp;
 
     if (!lst || !*lst)
         return ;

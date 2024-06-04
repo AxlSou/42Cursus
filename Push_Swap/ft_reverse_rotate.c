@@ -6,16 +6,16 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:04:13 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/01 14:46:09 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:23:08 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_reverse_rotate(l_list **lst)
+void	ft_reverse_rotate(t_stack **lst)
 {
-	l_list	*last;
-	l_list	*tmp;
+	t_stack	*last;
+	t_stack	*tmp;
 
 	if (!lst || !*lst || !(*lst)->next)
 		return ;
@@ -27,7 +27,7 @@ void	ft_reverse_rotate(l_list **lst)
 	tmp->next = NULL;
 }
 
-void	ft_rra(l_list **lst)
+void	ft_rra(t_stack **lst)
 {
 	if(lst)
 	{
@@ -36,7 +36,7 @@ void	ft_rra(l_list **lst)
 	}
 }
 
-void	ft_rrb(l_list **lst)
+void	ft_rrb(t_stack **lst)
 {
 	if(lst)
 	{
@@ -45,7 +45,7 @@ void	ft_rrb(l_list **lst)
 	}
 }
 
-void	ft_rrr(l_list **lst_a, l_list **lst_b)
+void	ft_rrr(t_stack **lst_a, t_stack **lst_b)
 {
 	if (lst_a && lst_b)
 	{
@@ -55,7 +55,7 @@ void	ft_rrr(l_list **lst_a, l_list **lst_b)
 	}
 }
 
-void	ft_rev_rotate_lst(l_list **lst_a, l_list **lst_b)
+void	ft_rev_rotate_lst(t_stack **lst_a, t_stack **lst_b)
 {
 	if (!ft_lstcheck_sort(lst_a) && !ft_lstcheck_sort(lst_b))
 		ft_rrr(lst_a, lst_b);

@@ -6,16 +6,16 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 11:34:56 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/01 14:44:23 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/04 20:11:28 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_max_number(l_list **lst)
+int	ft_max_number(t_stack **lst)
 {
 	int		num;
-	l_list	*current;
+	t_stack	*current;
 
 	if (!lst || !*lst)
 		return (0);
@@ -30,10 +30,10 @@ int	ft_max_number(l_list **lst)
 	return (num);
 }
 
-int	ft_min_number(l_list **lst)
+int	ft_min_number(t_stack **lst)
 {
 	int		num;
-	l_list	*current;
+	t_stack	*current;
 
 	if (!lst || !*lst)
 		return (0);

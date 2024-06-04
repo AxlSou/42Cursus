@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:33:19 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/04 19:38:16 by asoubiel         ###   ########.fr       */
+/*   Created: 2024/06/04 19:37:40 by asoubiel          #+#    #+#             */
+/*   Updated: 2024/06/04 20:19:43 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"	
 
-int	ft_atoi(const char *str);
-
-int	ft_atoi(const char *str)
+/* static void	check_limits(long n)
 {
-	int	index;
-	int	result;
-	int	is_negative;
+	if (n < -2147483648 || n > 2147483647)
+		error();
+} */
+
+/* int	ft_atoi(const char *str)
+{
+	int		index;
+	long	result;
+	int		is_negative;
 
 	index = 0;
 	result = 0;
@@ -38,13 +42,6 @@ int	ft_atoi(const char *str)
 		result += str[index] - '0';
 		index++;
 	}
+	check_limits(result);
 	return (result * is_negative);
-}
-
-/* 
-int	main(void)
-{
-	printf("%i\n", ft_atoi("			-2147483648"));
-	printf("%i", atoi("			 -45689 ed 16560"));
-	return (0);
 } */
