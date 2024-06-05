@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 23:41:39 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/04 19:23:37 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/05 21:07:33 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 void	ft_swap(t_stack **lst)
 {
-	int	tmp;
+	t_stack	*tmp;
 
 	if (!lst || !*lst || !(*lst)->next)
 		return ;
-	tmp = (*lst)->next->content;
-	(*lst)->next->content = (*lst)->content;
-	(*lst)->content = tmp;
+	tmp = (*lst)->next;
+	(*lst)->next = (*lst)->next->next;
+	tmp->next = *lst;
+	*lst = tmp;
+
 }
 
 void	ft_sa(t_stack **lst)

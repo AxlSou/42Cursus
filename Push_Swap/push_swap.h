@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:15:31 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/04 20:10:23 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:43:08 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_stack {
 
 void	ft_push(t_stack **stack_src, t_stack **stack_dst);
 void	ft_pa(t_stack **stack_a, t_stack **stack_b);
-void	ft_pb(t_stack **stack_b, t_stack **stack_a);
+void	ft_pb(t_stack **stack_a, t_stack **stack_b);
 void	ft_ra(t_stack **lst);
 void	ft_rb(t_stack **lst);
 void	ft_rr(t_stack **lst_a, t_stack **lst_b);
@@ -58,5 +58,6 @@ void	ft_clearlst(t_stack **lst, void (*del)(void *));
 void	ft_set_index(t_stack **stack);
 int		ft_sizelst(t_stack **lst);
 void	ft_move_to_b(t_stack **stack_a, t_stack **stack_b);
+void	ft_sort_three(t_stack **stack_a);
 
 #endif

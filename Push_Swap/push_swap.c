@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:15:14 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/04 20:29:47 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:44:19 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	main(int argc, char **argv)
 		}
 		ft_set_index(&stack_a);
 		ft_move_to_b(&stack_a, &stack_b);
+		ft_sort_three(&stack_a);
 		ft_lstprint(&stack_a);
 		ft_lstprint(&stack_b);
 	}
