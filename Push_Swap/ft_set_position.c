@@ -1,49 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max_number.c                                    :+:      :+:    :+:   */
+/*   ft_set_position.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 11:34:56 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/06 20:26:27 by asoubiel         ###   ########.fr       */
+/*   Created: 2024/02/01 13:36:29 by asoubiel          #+#    #+#             */
+/*   Updated: 2024/06/06 20:30:16 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_max_number(t_stack **lst)
+void	ft_set_position(t_stack **stack_a, t_stack **stack_b)
 {
-	int		num;
 	t_stack	*current;
+	int		i;
 
-	if (!lst || !*lst)
-		return (0);
-	current = *lst;
-	num = current->content;
+	if (!stack_a || !*stack_a || !stack_b || !*stack_b)
+		return ;
+	current = *stack_a;
+	i = 0;
 	while (current)
 	{
-		if (current->content > num)
-			num = current->content;
+		current->position = i;
 		current = current->next;
+		i++;
 	}
-	return (num);
-}
-
-int	ft_min_cost(t_stack **lst)
-{
-	int		cost;
-	t_stack	*current;
-
-	if (!lst || !*lst)
-		return (0);
-	current = *lst;
-	cost = current->cost;
+	current = *stack_b;
+	i = 0;
 	while (current)
 	{
-		if (current->content < cost)
-			cost = current->content;
+		current->position = i;
 		current = current->next;
+		i++;
 	}
-	return (cost);
 }

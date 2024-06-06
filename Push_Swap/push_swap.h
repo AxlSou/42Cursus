@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:15:31 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/05 20:43:08 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/06 19:58:55 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		ft_lstcheck_sort(t_stack **lst);
 void	ft_swap_stacks(t_stack **lst_a, t_stack **lst_b);
 int		ft_check_rotation_sort(t_stack **lst);
 void	ft_rotation_sort(t_stack **lst_a, t_stack **lst_b);
-int		ft_get_position(t_stack **lst, int n);
+void	ft_set_position(t_stack **stack_a, t_stack **stack_b);
 void	ft_lstprint(t_stack **lst);
 t_stack	*ft_newlst(int content);
 void	ft_add_back_lst(t_stack **lst, t_stack *new_n);
@@ -59,5 +59,7 @@ void	ft_set_index(t_stack **stack);
 int		ft_sizelst(t_stack **lst);
 void	ft_move_to_b(t_stack **stack_a, t_stack **stack_b);
 void	ft_sort_three(t_stack **stack_a);
+void	ft_set_target_pos(t_stack **stack_a, t_stack **stack_b);
+void	ft_set_cost(t_stack **stack_b);
 
 #endif
