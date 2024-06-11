@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:15:14 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/06 20:23:26 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/11 21:17:19 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ void	ft_lstprint(t_stack **lst)
 	}
 	ft_printf("\n");
 }
-
-// void	ft_sort(t_list **stack_a, t_list **stack_b)
-// {
-	
-// }
 
 int	main(int argc, char **argv)
 {

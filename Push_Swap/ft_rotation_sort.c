@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:30:04 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/06 20:22:08 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/11 21:17:17 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int ft_rotation_dir(t_stack **lst)
 	int	max;
 	int	position;
 
-	size = ft_lstsize(*lst);
+	size = ft_sizelst(*lst);
 	max = ft_max_number(lst);
 	position = ft_get_position(lst, max);
 	if (position < size / 2)
