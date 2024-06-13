@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:15:14 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/11 21:17:19 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/13 20:43:45 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,15 @@ int	main(int argc, char **argv)
 		ft_set_index(&stack_a);
 		ft_move_to_b(&stack_a, &stack_b);
 		ft_sort_three(&stack_a);
-		ft_set_position(&stack_a, &stack_b);
-		ft_set_target_pos(&stack_a, &stack_b);
-		ft_set_cost(&stack_b);
+		while (stack_b)
+		{
+			ft_set_position(&stack_a, &stack_b);
+			ft_set_target_pos(&stack_a, &stack_b);
+			ft_set_cost(&stack_b);
+			ft_rotation_sort(&stack_a, &stack_b);
+			ft_lstprint(&stack_a);
+			ft_lstprint(&stack_b);
+		}
 		ft_lstprint(&stack_a);
 		ft_lstprint(&stack_b);
 	}

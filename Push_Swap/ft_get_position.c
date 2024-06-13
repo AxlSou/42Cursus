@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:36:29 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/06 20:24:09 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/13 18:59:27 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_get_position(t_stack **lst, int n)
 	int		result;
 
 	current = *lst;
-	result = 1;
+	result = 0;
 	if (!lst)
 		return (0);
 	while (current)

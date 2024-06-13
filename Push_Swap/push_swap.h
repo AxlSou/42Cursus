@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:15:31 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/06 19:58:55 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/13 19:44:46 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	ft_swap_stacks(t_stack **lst_a, t_stack **lst_b);
 int		ft_check_rotation_sort(t_stack **lst);
 void	ft_rotation_sort(t_stack **lst_a, t_stack **lst_b);
 void	ft_set_position(t_stack **stack_a, t_stack **stack_b);
+int		ft_get_position(t_stack **lst, int n);
 void	ft_lstprint(t_stack **lst);
 t_stack	*ft_newlst(int content);
 void	ft_add_back_lst(t_stack **lst, t_stack *new_n);
