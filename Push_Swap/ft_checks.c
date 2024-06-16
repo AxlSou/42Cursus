@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 11:36:04 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/04 20:11:26 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/16 19:11:59 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,22 @@ int	ft_lstcheck_sort(t_stack **lst)
 	return (1);
 }
 
-int	ft_check_rotation_sort(t_stack **lst)
+int	ft_lstcheck_dup(t_stack **lst)
 {
-	int		max_num;
 	t_stack	*current;
+	t_stack	*aux;
 
-	max_num = ft_max_number(lst);
 	current = *lst;
-	while (current->next)
+	while (current)
 	{
-		if (current->content < current->next->content
-			|| current->content == max_num)
-			current = current->next;
-		else
-			return (0);
+		aux = current->next;
+		while (aux)
+		{
+			if (current->content == aux->content)
+				return (1);
+			aux = aux->next;
+		}
+		current = current->next;
 	}
-	return (1);
+	return (0);
 }

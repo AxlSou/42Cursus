@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 23:41:39 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/05 21:07:33 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:17:43 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,4 @@ void	ft_ss(t_stack **lst_a, t_stack **lst_b)
 	ft_swap(lst_a);
 	ft_swap(lst_b);
 	ft_printf("ss\n");
-}
-
-void	ft_swap_stacks(t_stack **lst_a, t_stack **lst_b)
-{
-	int	is_a_swappable;
-	int	is_b_swappable;
-
-	is_a_swappable = (*lst_a)->next && (*lst_a)->content
-		> (*lst_a)->next->content && (*lst_a)->content != ft_max_number(lst_a);
-	is_b_swappable = (*lst_b)->next && (*lst_b)->content 
-		> (*lst_b)->next->content && (*lst_b)->content != ft_max_number(lst_b);
-	if (is_a_swappable && is_b_swappable)
-		ft_ss(lst_a, lst_b);
-	else if (is_a_swappable)
-		ft_sa(lst_a);
-	else if (is_b_swappable)
-		ft_sb(lst_b);
 }

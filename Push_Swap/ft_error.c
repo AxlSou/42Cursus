@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sizelst.c                                       :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 19:43:16 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/16 09:12:09 by asoubiel         ###   ########.fr       */
+/*   Created: 2024/06/16 19:13:24 by asoubiel          #+#    #+#             */
+/*   Updated: 2024/06/16 19:19:31 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_sizelst(t_stack **lst)
+void	ft_error(void)
 {
-	int		count;
-	t_stack	*current;
-
-	current = *lst;
-	count = 1;
-	if (!lst)
-		return (0);
-	while (current->next)
-	{
-		current = current->next;
-		count++;
-	}
-	return (count);
+	write(2, "Error\n", ft_strlen("Error\n"));
+	exit(-1);
 }

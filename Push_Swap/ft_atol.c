@@ -6,19 +6,19 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 19:37:40 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/04 20:19:43 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/16 19:29:49 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"	
 
-/* static void	check_limits(long n)
+static void	check_limits(long n)
 {
 	if (n < -2147483648 || n > 2147483647)
-		error();
-} */
+		ft_error();
+}
 
-/* int	ft_atoi(const char *str)
+int	ft_atol(const char *str)
 {
 	int		index;
 	long	result;
@@ -44,4 +44,4 @@
 	}
 	check_limits(result);
 	return (result * is_negative);
-} */
+}

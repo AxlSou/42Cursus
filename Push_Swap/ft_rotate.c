@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 00:45:59 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/04 20:11:38 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/16 10:02:53 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_rotate(t_stack **lst)
 
 void	ft_ra(t_stack **lst)
 {
-	if(lst)
+	if (lst)
 	{
 		ft_rotate(lst);
 		ft_printf("ra\n");
@@ -42,7 +42,6 @@ void	ft_rb(t_stack **lst)
 		ft_rotate(lst);
 		ft_printf("rb\n");
 	}
-	
 }
 
 void	ft_rr(t_stack **lst_a, t_stack **lst_b)
@@ -53,15 +52,4 @@ void	ft_rr(t_stack **lst_a, t_stack **lst_b)
 		ft_rotate(lst_b);
 		ft_printf("rr\n");
 	}
-	
-}
-
-void	ft_rotate_lst(t_stack **lst_a, t_stack **lst_b)
-{
-	if (!ft_lstcheck_sort(lst_a) && !ft_lstcheck_sort(lst_b))
-		ft_rr(lst_a, lst_b);
-	else if (!ft_lstcheck_sort(lst_a))
-		ft_ra(lst_a);
-	else if (!ft_lstcheck_sort(lst_b))
-		ft_rb(lst_b);
 }

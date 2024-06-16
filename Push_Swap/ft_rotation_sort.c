@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:30:04 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/13 20:10:23 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/16 10:03:11 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,34 +44,32 @@ static t_stack	*ft_get_target(t_stack **lst_a, int pos)
 	return (NULL);
 }
 
-/* int	ft_rotation_dir(t_stack **lst)
+static void	ft_rotation_b(t_stack **lst_b, t_stack *chpst, int size_b)
 {
-	int	size;
-	int	max;
-	int	position;
+	if (chpst->position && chpst->position < size_b / 2)
+		ft_rb(lst_b);
+	else if (chpst->position)
+		ft_rrb(lst_b);
+}
 
-	size = ft_sizelst(*lst);
-	max = ft_max_number(lst);
-	position = ft_get_position(lst, max);
-	if (position < size / 2)
-		return (1);
-	else
-		return (0);
-} */
+static void	ft_rotation_a(t_stack **lst_a, t_stack *target, int size_a)
+{
+	if (target->position && target->position < size_a / 2)
+		ft_ra(lst_a);
+	else if (target->position)
+		ft_rra(lst_a);
+}
 
-void	ft_rotation_sort(t_stack **lst_a, t_stack **lst_b)
+void	ft_rotation_sort(t_stack **lst_a, t_stack **lst_b,
+							int size_a, int size_b)
 {
 	t_stack	*chpst;
 	t_stack	*target;
-	int		size_a;
-	int		size_b;
 
 	if (!lst_a || !lst_b || !*lst_a || !*lst_b)
 		return ;
 	chpst = ft_get_cheapest(lst_b);
 	target = ft_get_target(lst_a, chpst->target_pos);
-	size_a = ft_sizelst(lst_a);
-	size_b = ft_sizelst(lst_b);
 	while (chpst->position || target->position)
 	{
 		if ((chpst->position < size_b / 2 && target->position < size_a / 2)
@@ -82,14 +80,8 @@ void	ft_rotation_sort(t_stack **lst_a, t_stack **lst_b)
 			ft_rrr(lst_a, lst_b);
 		else
 		{
-			if (chpst->position && chpst->position < size_b)
-				ft_rb(lst_b);
-			else if (chpst->position)
-				ft_rrb(lst_b);
-			if (target->position && target->position < size_a)
-				ft_ra(lst_a);
-			else if (target->position)
-				ft_rra(lst_a);
+			ft_rotation_b(lst_b, chpst, size_b);
+			ft_rotation_a(lst_a, target, size_a);
 		}
 		chpst->position = ft_get_position(lst_b, chpst->content);
 		target->position = ft_get_position(lst_a, target->content);
