@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:24:22 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/18 20:18:34 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/19 20:52:31 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ void	ft_add_back_lst(t_stack **lst, t_stack *new_n)
 	if (!lst || !new_n)
 		return ;
 	if (!*lst)
+	{
 		*lst = new_n;
+		return ;
+	}
 	current = *lst;
 	while (current->next)
 		current = current->next;

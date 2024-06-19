@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 19:37:40 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/18 20:27:11 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/19 21:01:23 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	ft_atol(const char *str)
 		result += str[index] - '0';
 		index++;
 	}
+	if (str[index] && !ft_isdigit(str[index]))
+		ft_error();
 	check_limits(result);
 	return (result * is_negative);
 }

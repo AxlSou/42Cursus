@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 23:41:39 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/18 20:21:20 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/19 21:01:59 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static void	ft_swap(t_stack **lst)
 	(*lst)->next = (*lst)->next->next;
 	tmp->next = *lst;
 	*lst = tmp;
-
 }
 
 void	ft_sa(t_stack **lst)

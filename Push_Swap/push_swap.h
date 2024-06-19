@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:15:31 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/18 20:21:50 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/19 21:02:59 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,5 @@ void	ft_set_cost(t_stack **stack_a, t_stack **stack_b,
 void	ft_lstcheck_dup(t_stack **lst);
 void	ft_error(void);
 int		ft_atol(const char *str);
-void	ft_lstprint(t_stack **lst);
 
 #endif
