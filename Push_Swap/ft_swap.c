@@ -6,13 +6,13 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 23:41:39 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/15 18:17:43 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:21:20 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_stack **lst)
+static void	ft_swap(t_stack **lst)
 {
 	t_stack	*tmp;
 

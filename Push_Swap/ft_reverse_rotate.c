@@ -6,13 +6,13 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:04:13 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/16 10:02:41 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:20:59 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_reverse_rotate(t_stack **lst)
+static void	ft_reverse_rotate(t_stack **lst)
 {
 	t_stack	*last;
 	t_stack	*tmp;

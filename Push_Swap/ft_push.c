@@ -6,13 +6,13 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:40:25 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/05 20:01:40 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:20:50 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_stack **stack_src, t_stack **stack_dst)
+static void	ft_push(t_stack **stack_src, t_stack **stack_dst)
 {
 	t_stack	*current;
 
