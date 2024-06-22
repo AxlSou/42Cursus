@@ -49,10 +49,9 @@ static void	ft_push_swap(char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	i = 2;
+	i = 1;
 	stack_b = NULL;
 	stack_a = NULL;
-	ft_new_stack(&stack_a, argv[1]);
 	while (argv[i])
 	{
 		ft_new_stack(&stack_a, argv[i]);
@@ -66,8 +65,22 @@ static void	ft_push_swap(char **argv)
 
 int	main(int argc, char **argv)
 {
+	char	*buf;
+	int		bytes_read;
+
+	buf = NULL;
 	if (argc < 2)
-		return (0);
+	{
+		bytes_read = read(0, buf, 10000);
+		if (bytes_read > 0)
+		{
+			buf[bytes_read] = '\0';
+			argv[1] = buf;
+			ft_push_swap(argv);
+		}
+		else
+			ft_error();
+	}
 	else
 		ft_push_swap(argv);
 	return (0);
