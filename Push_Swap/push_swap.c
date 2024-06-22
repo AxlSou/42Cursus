@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:15:14 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/19 21:32:28 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/22 19:43:34 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,20 @@ static void	ft_push_swap(char **argv)
 
 int	main(int argc, char **argv)
 {
-	char	*buf;
-	int		bytes_read;
+	char		buf[10000];
+	ssize_t		bytes_read;
 
-	buf = NULL;
 	if (argc < 2)
 	{
 		bytes_read = read(0, buf, 10000);
 		if (bytes_read > 0)
 		{
-			buf[bytes_read] = '\0';
+			if (buf[bytes_read - 1] == '\n')
+				buf[bytes_read - 1] = '\0';
+			else
+				buf[bytes_read] = '\0';
 			argv[1] = buf;
+			argv[2] = NULL;
 			ft_push_swap(argv);
 		}
 		else
