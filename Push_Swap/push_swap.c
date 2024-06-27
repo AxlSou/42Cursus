@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:15:14 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/27 20:21:40 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/27 20:43:48 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_new_stack(t_stack **stack_a, char *argv)
 	split = ft_split(argv, ' ');
 	while (split[i])
 	{
-		ft_add_back_lst(stack_a, ft_newlst(ft_atol(split[i], &error)));
+		ft_add_back_lst(stack_a, ft_newlst(ft_atol(split[i], &error, 0)));
 		free(split[i]);
 		i++;
 	}

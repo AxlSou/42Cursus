@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 19:37:40 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/27 20:18:29 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/27 20:43:47 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,11 @@ static int	check_spaces(const char c)
 	return (0);
 }
 
-int	ft_atol(const char *str, int *error)
+int	ft_atol(const char *str, int *error, int index)
 {
-	int		index;
 	long	result;
 	int		is_negative;
 
-	index = 0;
 	result = 0;
 	is_negative = 1;
 	while (check_spaces(str[index]))
@@ -43,6 +41,8 @@ int	ft_atol(const char *str, int *error)
 			is_negative *= -1;
 		index++;
 	}
+	if (!str[index])
+		*error = -1;
 	while (str[index] >= '0' && str[index] <= '9')
 	{
 		result *= 10;
