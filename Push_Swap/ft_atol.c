@@ -6,16 +6,16 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 19:37:40 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/22 19:43:26 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/27 20:18:29 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"	
 
-static void	check_limits(long n)
+static void	check_limits(long n, int *error)
 {
 	if (n < -2147483648 || n > 2147483647)
-		ft_error();
+		*error = -1;
 }
 
 static int	check_spaces(const char c)
@@ -26,7 +26,7 @@ static int	check_spaces(const char c)
 	return (0);
 }
 
-int	ft_atol(const char *str)
+int	ft_atol(const char *str, int *error)
 {
 	int		index;
 	long	result;
@@ -50,7 +50,7 @@ int	ft_atol(const char *str)
 		index++;
 	}
 	if (str[index] && !ft_isdigit(str[index]))
-		ft_error();
-	check_limits(result);
+		*error = -1;
+	check_limits(result, error);
 	return (result * is_negative);
 }
