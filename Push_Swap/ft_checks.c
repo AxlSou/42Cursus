@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 11:36:04 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/17 23:26:35 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/06/27 19:25:33 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ void	ft_lstcheck_dup(t_stack **lst)
 		while (aux)
 		{
 			if (current->content == aux->content)
+			{
+				ft_clearlst(lst, free);
 				ft_error();
+			}
 			aux = aux->next;
 		}
 		current = current->next;
