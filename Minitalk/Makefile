@@ -6,7 +6,7 @@
 #    By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/22 23:51:52 by asoubiel          #+#    #+#              #
-#    Updated: 2024/06/29 13:39:58 by asoubiel         ###   ########.fr        #
+#    Updated: 2024/07/04 19:07:41 by asoubiel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,10 @@ $(CLIENT_NAME): $(CLIENT_OBJS) $(LIBFT) $(COMMON_OBJS)
 
 clean:
 	make clean -C $(LIBFTDIR)
-	rm -f $(SERVER_OBJS) $(CLIENT_OBJS)
+	rm -f $(SERVER_OBJS) $(CLIENT_OBJS) $(COMMON_OBJS)
 
 fclean: clean
-	rm -f $(SERVER_NAME) $(CLIENT_NAME) $(LIBFT)
+	rm -f $(SERVER_NAME) $(CLIENT_NAME) $(COMMON_OBJS) $(LIBFT)
 
 re: fclean all
 

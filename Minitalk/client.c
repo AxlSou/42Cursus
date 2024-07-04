@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 22:35:06 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/06/30 20:24:26 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:37:37 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	char_to_sig(int pid, char *str)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			usleep(200);
+			usleep(999);
 			i--;
 		}
 		i = 7;
@@ -34,7 +34,7 @@ static void	char_to_sig(int pid, char *str)
 	while (i >= 0)
 	{
 		kill(pid, SIGUSR2);
-		usleep(200);
+		usleep(999);
 		i--;
 	}
 }
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	if (argc != 3)
 		return (0);
 	pid = ft_atoi(argv[1]);
-	if (!ft_isdigit(pid) || pid < 1)
+	if (pid < 1)
 		return (0);
 	else
 		char_to_sig(pid, argv[2]);
