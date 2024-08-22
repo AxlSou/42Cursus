@@ -6,11 +6,11 @@
 #    By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/17 19:02:17 by asoubiel          #+#    #+#              #
-#    Updated: 2024/08/17 21:40:24 by asoubiel         ###   ########.fr        #
+#    Updated: 2024/08/22 19:47:06 by asoubiel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Wextra -Werror
 
 #Directories
