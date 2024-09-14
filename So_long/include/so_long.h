@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:00:32 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/14 13:01:51 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/14 18:44:41 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# define WIDTH 512
-# define HEIGHT 512
 
 typedef struct s_player_img
 {
