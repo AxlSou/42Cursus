@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:21:43 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/14 12:37:09 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/14 22:18:35 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,21 @@ static void	load_img_floor(t_game *game)
 		error();
 }
 
+static void	load_wall(t_game *game)
+{
+	mlx_texture_t	*wall;
+
+	wall = mlx_load_png("./assets/Tree.png");
+	if (!wall)
+		error();
+	game->wall = mlx_texture_to_image(game->mlx, wall);
+	if (!game->wall)
+		error();
+}
+
 void	load_img(t_game *game)
 {
 	load_img_floor(game);
 	load_player(game);
+	load_wall(game);
 }
