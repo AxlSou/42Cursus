@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:00:32 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/08/22 20:05:10 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/14 13:01:51 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,16 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# define WIDTH 1024
-# define HEIGHT 1024
+# define WIDTH 512
+# define HEIGHT 512
+
+typedef struct s_player_img
+{
+	mlx_image_t		*player_d;
+	mlx_image_t		*player_u;
+	mlx_image_t		*player_l;
+	mlx_image_t		*player_r;
+}					t_player_img;
 
 typedef struct s_game
 {
@@ -31,16 +39,20 @@ typedef struct s_game
 	int				exit_pos[2];
 	int				collectibles;
 	int				moves;
-	mlx_texture_t	*player;
-	mlx_texture_t	*wall;
-	mlx_texture_t	*exit;
-	mlx_texture_t	*collectible;
-	mlx_texture_t	*floor1;
-	mlx_texture_t	*floor2;
+	t_player_img	*player_img;
+	mlx_image_t		*wall;
+	mlx_image_t		*exit;
+	mlx_image_t		*collectible;
+	mlx_image_t		*floor1;
+	mlx_image_t		*floor2;
 }					t_game;
 
 void	error(void);
 void	init(t_game *game);
 void	load_img(t_game *game);
+void	move_player_up(t_game *game);
+void	move_player_down(t_game *game);
+void	move_player_left(t_game *game);
+void	move_player_right(t_game *game);
 
 #endif
