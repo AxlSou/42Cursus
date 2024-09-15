@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:30:13 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/15 15:43:08 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/15 17:34:11 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_collectibles	*collect_lst_new(int x, int y)
 
 	new = malloc(sizeof(t_collectibles));
 	if (!new)
-		error();
+		error("Error\nMalloc failed\n");
 	new->x = x;
 	new->y = y;
 	new->next = NULL;
@@ -77,7 +77,7 @@ void	collect_to_window(t_game *game, int x, int y)
 		load_collectible(game, collect);
 		if (mlx_image_to_window(game->mlx, collect->collectible_img,
 				collect->x * 64, collect->y * 64) < 0)
-			error();
+			error_mlx();
 		collect->collectible_img->instances->x += 8;
 		collect->collectible_img->instances->y += 8;
 		collect = collect->next;
