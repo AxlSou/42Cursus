@@ -6,61 +6,11 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:13:50 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/15 16:51:43 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/24 21:02:50 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-static void	get_map_size(t_game *game, char *map)
-{
-	char	*line;
-	int		fd;
-
-	game->map_height = 0;
-	game->map_width = 0;
-	fd = open(map, O_RDONLY);
-	if (fd < 0)
-		return ;
-	line = get_next_line(fd);
-	while (line)
-	{
-		game->map_height++;
-		if (game->map_width < (int)ft_strlen(line) - 1)
-			game->map_width = ft_strlen(line) - 1;
-		free(line);
-		line = get_next_line(fd);
-	}
-}
-
-static int	read_map(t_game *game, char *map)
-{
-	int		fd;
-	char	*line;
-	int		i;
-
-	i = 0;
-	fd = open(map, O_RDONLY);
-	if (fd < 0)
-		return (-1);
-	get_map_size(game, map);
-	game->map = (char **)malloc(sizeof(char *) * (game->map_height + 1));
-	if (!game->map)
-		return (-1);
-	game->map[game->map_height] = NULL;
-	line = get_next_line(fd);
-	while (line)
-	{
-		game->map[i] = (char *)malloc(sizeof(char) * (ft_strlen(line) + 1));
-		if (!game->map[i])
-			return (-1);
-		game->map[i] = ft_strdup(line);
-		free(line);
-		line = get_next_line(fd);
-		i++;
-	}
-	return (close(fd));
-}
 
 int	main(int argc, char **argv)
 {
@@ -77,6 +27,9 @@ int	main(int argc, char **argv)
 		game->player_img = (t_player_img *)malloc(sizeof(t_player_img));
 		if (read_map(game, argv[1]) < 0)
 			return (EXIT_FAILURE);
+		get_items(game);
+		flood_fill(game, game->player_pos[0], game->player_pos[1]);
+		map_checks(game, game->collectibles);
 		init(game);
 		mlx_loop(game->mlx);
 		exit_game(game);
