@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:41:18 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/15 17:07:38 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/24 20:08:59 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	error_mlx(void)
 	exit(EXIT_FAILURE);
 }
 
-void	error(char *str)
+void	error(t_game *game, char *str)
 {
 	ft_printf("Error:\n");
 	ft_printf("%s\n", str);
-	exit(EXIT_FAILURE);
+	exit_game(game);
 }

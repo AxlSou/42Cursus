@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 15:55:53 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/15 17:10:02 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/24 20:54:21 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_pos_count(t_game *game)
 		y++;
 	}
 	if (count != 1)
-		error("Player position error");
+		error(game, "Player position error");
 }
 
 void	init_exit_count(t_game *game)
@@ -56,7 +56,7 @@ void	init_exit_count(t_game *game)
 		y++;
 	}
 	if (count != 1)
-		error("Exit position error");
+		error(game, "Exit position error");
 }
 
 void	is_map_rectangular(t_game *game)
@@ -69,7 +69,7 @@ void	is_map_rectangular(t_game *game)
 	while (game->map[y])
 	{
 		if ((int)ft_strlen(game->map[y]) != len)
-			error("Map is not rectangular");
+			error(game, "Map is not rectangular");
 		y++;
 	}
 }
@@ -94,7 +94,7 @@ void	map_has_collectibles(t_game *game)
 		y++;
 	}
 	if (count == 0)
-		error("Map has no collectibles");
+		error(game, "Map has no collectibles");
 }
 
 void	is_map_closed(t_game *game)
@@ -103,25 +103,26 @@ void	is_map_closed(t_game *game)
 	int	y;
 
 	y = 0;
-	while (game->map[y++])
+	while (game->map[y])
 	{
 		x = 0;
-		while (game->map[y][x])
+		while (x < game->map_width)
 		{
 			if (y == 0 || y == game->map_height || x == 0
 				|| x == game->map_width - 1)
 			{
 				if (game->map[y][x] != '1')
-					error("Map is not closed");
+					error(game, "Map is not closed");
 			}
 			else
 			{
 				if (game->map[y][x] != '1' && game->map[y][x] != '0'
 					&& game->map[y][x] != 'P' && game->map[y][x] != 'C'
-					&& game->map[y][x] != 'E')
-					error("Map is not closed");
+					&& game->map[y][x] != 'E' && game->map[y][x] != 'F')
+					error(game, "Map is not closed");
 			}
 			x++;
 		}
+		y++;
 	}
 }
