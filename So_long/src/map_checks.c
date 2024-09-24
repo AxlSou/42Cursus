@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 16:52:16 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/15 17:12:45 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/24 21:20:43 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	is_exit_reachable(t_game *game)
 					return ;
 				}
 				else
-					error("Exit unreachable");
+					error(game, "Exit unreachable");
 			}
 			x++;
 		}
@@ -54,7 +54,7 @@ static void	is_collectible_reachable(t_game *game, t_collectibles *collectibles)
 			collectibles = collectibles->next;
 		}
 		else
-			error("Collectible unreachable");
+			error(game, "Collectible unreachable");
 	}
 }
 
