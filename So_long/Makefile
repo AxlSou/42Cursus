@@ -6,7 +6,7 @@
 #    By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/17 19:02:17 by asoubiel          #+#    #+#              #
-#    Updated: 2024/09/15 17:05:02 by asoubiel         ###   ########.fr        #
+#    Updated: 2024/09/24 20:14:11 by asoubiel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,8 @@ SRC_FILES = $(SRCDIR)/main.c \
 			$(SRCDIR)/exit.c \
 			$(SRCDIR)/check_utils.c \
 			$(SRCDIR)/map_checks.c \
+			$(SRCDIR)/read_map.c \
+			$(SRCDIR)/get_items.c \
 
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
