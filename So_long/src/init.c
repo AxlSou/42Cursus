@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:26:08 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/15 17:02:25 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/24 21:08:25 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	init(t_game *game)
 	game->player_img->player_u = NULL;
 	game->player_img->player_r = NULL;
 	game->player_img->player_l = NULL;
-	game->collectibles = 0;
 	game->moves = 0;
 	render_ground(game);
 	render_walls(game);
