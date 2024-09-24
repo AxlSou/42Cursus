@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 10:24:35 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/15 17:05:24 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/24 21:08:03 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,50 +66,30 @@ void	render_walls(t_game *game)
 
 void	render_player(t_game *game)
 {
-	char	**map;
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 
-	map = game->map;
-	y = 0;
-	while (map[y])
-	{
-		x = 0;
-		while (map[y][x])
-		{
-			if (map[y][x] == 'P')
-			{
-				if (mlx_image_to_window(game->mlx, game->player_img->player_d,
-						x * 64, y * 64) < 0)
-					error_mlx();
-				game->player_pos[0] = x;
-				game->player_pos[1] = y;
-			}
-			x++;
-		}
-		y++;
-	}
+	x = game->player_pos[0];
+	y = game->player_pos[1];
+	if (mlx_image_to_window(game->mlx, game->player_img->player_d,
+			x * 64, y * 64) < 0)
+		error_mlx();
 }
 
 void	render_collectibles(t_game *game)
 {
-	int		x;
-	int		y;
+	t_collectibles	*collect;
 
-	y = 0;
-	while (game->map[y])
+	collect = game->collectibles;
+	while (collect)
 	{
-		x = 0;
-		while (game->map[y][x])
-		{
-			if (game->map[y][x] == 'C')
-			{
-				collect_to_window(game, x, y);
-				game->collectibles_count++;
-			}
-			x++;
-		}
-		y++;
+		load_collectible(game, collect);
+		if (mlx_image_to_window(game->mlx, collect->collectible_img,
+				collect->x * 64, collect->y * 64) < 0)
+			error_mlx();
+		collect->collectible_img->instances->x += 8;
+		collect->collectible_img->instances->y += 8;
+		collect = collect->next;
 	}
 }
 
