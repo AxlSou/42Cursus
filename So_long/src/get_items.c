@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 20:03:16 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/24 20:18:51 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/30 20:10:49 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void	get_player_pos(t_game *game)
 
 	map = game->map;
 	y = 0;
+	game->player_pos[0] = -1;
+	game->player_pos[1] = -1;
 	while (map[y])
 	{
 		x = 0;
@@ -34,6 +36,8 @@ static void	get_player_pos(t_game *game)
 		}
 		y++;
 	}
+	if (game->player_pos[0] == -1 || game->player_pos[1] == -1)
+		parser_error(game, "Player position error");
 }
 
 static void	get_collectibles(t_game *game)
@@ -61,6 +65,8 @@ static void	get_collectibles(t_game *game)
 
 void	get_items(t_game *game)
 {
+	game->collectibles = NULL;
+	game->collectibles_count = 0;
 	get_player_pos(game);
 	get_collectibles(game);
 }
