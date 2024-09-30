@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:30:13 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/24 20:18:05 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:48:18 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_collectibles	*collect_lst_new(int x, int y)
 	new = malloc(sizeof(t_collectibles));
 	if (!new)
 		return (NULL);
+	new->collectible_img = NULL;
 	new->x = x;
 	new->y = y;
 	new->next = NULL;
