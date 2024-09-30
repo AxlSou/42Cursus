@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 15:55:53 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/24 20:54:21 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:07:49 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_pos_count(t_game *game)
 		y++;
 	}
 	if (count != 1)
-		error(game, "Player position error");
+		parser_error(game, "Player position error");
 }
 
 void	init_exit_count(t_game *game)
@@ -56,7 +56,7 @@ void	init_exit_count(t_game *game)
 		y++;
 	}
 	if (count != 1)
-		error(game, "Exit position error");
+		parser_error(game, "Exit position error");
 }
 
 void	is_map_rectangular(t_game *game)
@@ -69,7 +69,7 @@ void	is_map_rectangular(t_game *game)
 	while (game->map[y])
 	{
 		if ((int)ft_strlen(game->map[y]) != len)
-			error(game, "Map is not rectangular");
+			parser_error(game, "Map is not rectangular");
 		y++;
 	}
 }
@@ -94,7 +94,7 @@ void	map_has_collectibles(t_game *game)
 		y++;
 	}
 	if (count == 0)
-		error(game, "Map has no collectibles");
+		parser_error(game, "Map has no collectibles");
 }
 
 void	is_map_closed(t_game *game)
@@ -102,8 +102,8 @@ void	is_map_closed(t_game *game)
 	int	x;
 	int	y;
 
-	y = 0;
-	while (game->map[y])
+	y = -1;
+	while (game->map[++y])
 	{
 		x = 0;
 		while (x < game->map_width)
@@ -112,17 +112,16 @@ void	is_map_closed(t_game *game)
 				|| x == game->map_width - 1)
 			{
 				if (game->map[y][x] != '1')
-					error(game, "Map is not closed");
+					parser_error(game, "Map is not closed");
 			}
 			else
 			{
 				if (game->map[y][x] != '1' && game->map[y][x] != '0'
 					&& game->map[y][x] != 'P' && game->map[y][x] != 'C'
 					&& game->map[y][x] != 'E' && game->map[y][x] != 'F')
-					error(game, "Map is not closed");
+					parser_error(game, "Map is not closed");
 			}
 			x++;
 		}
-		y++;
 	}
 }
