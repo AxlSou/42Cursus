@@ -6,13 +6,13 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 15:20:56 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/24 21:17:23 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:05:30 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static void	free_map(t_game *game)
+void	free_map(t_game *game)
 {
 	int	i;
 
