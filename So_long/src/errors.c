@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:41:18 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/24 20:08:59 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:42:06 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,37 @@ void	error_mlx(void)
 {
 	ft_printf(mlx_strerror(mlx_errno));
 	exit(EXIT_FAILURE);
+}
+
+void	parser_error(t_game *game, char *str)
+{
+	ft_printf("Error:\n");
+	ft_printf("%s\n", str);
+	free_map(game);
+	if (game->collectibles)
+		collect_lst_clear(game, &game->collectibles);
+	if (game->player_img)
+		free(game->player_img);
+	if (game)
+		free(game);
+	exit(1);
+}
+
+void	ext_error(char *str)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = ft_strlen(str);
+	if (str[len - 1] == 'r' && str[len - 2] == 'e' && str[len - 3] == 'b'
+		&& str[len - 4] == '.')
+		return ;
+	else
+	{
+		ft_printf("Error: Invalid extension\n");
+		exit(1);
+	}
 }
 
 void	error(t_game *game, char *str)
