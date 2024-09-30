@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:13:50 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/24 21:02:50 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/30 20:10:43 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
+		ext_error(argv[1]);
 		game = (t_game *)malloc(sizeof(t_game));
 		game->player_img = (t_player_img *)malloc(sizeof(t_player_img));
 		if (read_map(game, argv[1]) < 0)
