@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:26:08 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/24 21:08:25 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/09/30 20:13:33 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	my_keyhook(mlx_key_data_t keydata, void *param)
 void	init(t_game *game)
 {
 	game->mlx = mlx_init(game->map_width * 64,
-			game->map_height * 64, "Test", true);
+			game->map_height * 64, "So_long", false);
 	if (!game->mlx)
 		error_mlx();
 	load_img(game);
