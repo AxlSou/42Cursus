@@ -6,15 +6,15 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:10:26 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/08/17 20:35:38 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/10/01 18:53:27 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t ft_strlen_gnl(const char *str)
+size_t	ft_strlen_gnl(const char *str)
 {
-	size_t index;
+	size_t	index;
 
 	index = 0;
 	while (str[index] != '\0')
@@ -24,17 +24,17 @@ size_t ft_strlen_gnl(const char *str)
 	return (index);
 }
 
-void *ft_free_gnl(char *ptr)
+void	*ft_free_gnl(char *ptr)
 {
 	free(ptr);
 	return (NULL);
 }
 
-char *ft_substr_gnl(char const *s, unsigned int start, size_t len)
+char	*ft_substr_gnl(char const *s, unsigned int start, size_t len)
 {
-	size_t str_len;
-	char *substr;
-	size_t i;
+	size_t	str_len;
+	char	*substr;
+	size_t	i;
 
 	i = 0;
 	str_len = ft_strlen_gnl(s);
@@ -51,12 +51,12 @@ char *ft_substr_gnl(char const *s, unsigned int start, size_t len)
 	return (substr);
 }
 
-char *ft_strjoin_gnl(char const *s1, char const *s2)
+char	*ft_strjoin_gnl(char const *s1, char const *s2)
 {
-	size_t s1_len;
-	size_t s2_len;
-	char *result;
-	size_t i;
+	size_t	s1_len;
+	size_t	s2_len;
+	char	*result;
+	size_t	i;
 
 	i = 0;
 	if (!s1)
@@ -76,9 +76,9 @@ char *ft_strjoin_gnl(char const *s1, char const *s2)
 	return (result);
 }
 
-int ft_strchr_gnl(char *str, int c)
+int	ft_strchr_gnl(char *str, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')

@@ -6,7 +6,7 @@
 #    By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/17 19:02:17 by asoubiel          #+#    #+#              #
-#    Updated: 2024/09/24 20:14:11 by asoubiel         ###   ########.fr        #
+#    Updated: 2024/10/01 18:48:59 by asoubiel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ INCLUDES = -I $(INCDIR) -I $(MLXDIR)/include
 
 #Libraries
 LIBS = $(MLXDIR)/build/libmlx42.a -ldl -lglfw -pthread -lm $(LIBFTDIR)/libft.a
+LIBFT = $(LIBFTDIR)/libft.a
 
 #Sources
 SRC_FILES = $(SRCDIR)/main.c \
@@ -65,6 +66,7 @@ clean:
 	@rm -rf $(MLXDIR)/build
 
 fclean: clean
+	@rm -rf $(LIBFT)
 	@rm -rf $(NAME)
 
 re: clean all

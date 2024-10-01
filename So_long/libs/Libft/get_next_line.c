@@ -6,16 +6,16 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:10:23 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/08/17 20:37:32 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/10/01 18:52:15 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *ft_read_file(int fd, char *buf, char *str)
+char	*ft_read_file(int fd, char *buf, char *str)
 {
-	char *tmp;
-	int size;
+	char	*tmp;
+	int		size;
 
 	size = 1;
 	while (size != 0)
@@ -41,10 +41,10 @@ char *ft_read_file(int fd, char *buf, char *str)
 	return (str);
 }
 
-char *get_new_line(char *str)
+char	*get_new_line(char *str)
 {
-	char *result;
-	int i;
+	char	*result;
+	int		i;
 
 	i = 0;
 	if (!str)
@@ -60,11 +60,11 @@ char *get_new_line(char *str)
 	return (result);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *str;
-	char *result;
-	char *buf;
+	static char	*str;
+	char		*result;
+	char		*buf;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);

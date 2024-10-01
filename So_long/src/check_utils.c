@@ -6,12 +6,11 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 15:55:53 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/30 19:07:49 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/10/01 18:44:26 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
 
 void	init_pos_count(t_game *game)
 {
