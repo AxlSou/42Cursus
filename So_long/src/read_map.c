@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 19:43:18 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/24 21:22:07 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:11:02 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	read_map(t_game *game, char *map)
 	get_map_size(game, map);
 	game->map = (char **)malloc(sizeof(char *) * (game->map_height + 1));
 	if (!game->map)
-		return (-1);
+		return (close(fd), -1);
 	game->map[game->map_height] = NULL;
 	line = get_next_line(fd);
 	while (line)

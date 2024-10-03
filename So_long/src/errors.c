@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:41:18 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/30 19:42:06 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:44:04 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	flood_fill(t_game *game, int x, int y)
 	flood_fill(game, x, y - 1);
 }
 
-void	error_mlx(void)
+void	error_mlx(t_game *game)
 {
 	ft_printf(mlx_strerror(mlx_errno));
-	exit(EXIT_FAILURE);
+	exit_game(game);
 }
 
 void	parser_error(t_game *game, char *str)

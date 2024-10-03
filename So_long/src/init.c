@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:26:08 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/30 20:13:33 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:22:18 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	init(t_game *game)
 	game->mlx = mlx_init(game->map_width * 64,
 			game->map_height * 64, "So_long", false);
 	if (!game->mlx)
-		error_mlx();
+		parser_error(game, (char *)mlx_strerror(mlx_errno));
 	load_img(game);
 	game->player_img->player_u = NULL;
 	game->player_img->player_r = NULL;

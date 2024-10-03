@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:00:32 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/09/30 19:18:49 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:24:14 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void			collect_lst_add_back(t_collectibles **lst, t_collectibles *new);
 
 // Error handling
 void			error(t_game *game, char *str);
-void			error_mlx(void);
+void			error_mlx(t_game *game);
 void			exit_game(t_game *game);
 void			free_map(t_game *game);
 void			parser_error(t_game *game, char *str);

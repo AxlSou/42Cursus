@@ -6,7 +6,7 @@
 #    By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/17 19:02:17 by asoubiel          #+#    #+#              #
-#    Updated: 2024/10/01 18:48:59 by asoubiel         ###   ########.fr        #
+#    Updated: 2024/10/01 19:31:55 by asoubiel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 #Directories
 SRCDIR = src
 INCDIR = include
-ASSETDIR = assets
+ASSETDIR = textures
 LIBSDIR = libs
 MLXDIR = $(LIBSDIR)/MLX42
 LIBFTDIR = $(LIBSDIR)/Libft

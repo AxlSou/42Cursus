@@ -6,7 +6,7 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:13:50 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/10/01 18:44:03 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:08:17 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("Usage: %s <map>\n", argv[0]);
+		ft_printf("Usage: %s <map>\n", argv[0]);
 		return (EXIT_FAILURE);
 	}
 	ext_error(argv[1]);
