@@ -6,12 +6,14 @@
 /*   By: asoubiel <asoubiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:06:24 by asoubiel          #+#    #+#             */
-/*   Updated: 2024/08/17 19:51:08 by asoubiel         ###   ########.fr       */
+/*   Updated: 2024/10/01 18:52:47 by asoubiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include "ft_printf.h"
+# include "get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
